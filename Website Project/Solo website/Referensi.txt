@@ -1,0 +1,22 @@
+FONT =
+https://fonts.google.com/
+
+
+Referensi gambar:
+-https://www.google.com/url?sa=i&url=https%3A%2F%2Fpngtree.com%2Ffreebackground%2Fseabed-background_120239.html&psig=AOvVaw0VgouPEBA0JoehjIHXjvgo&ust=1654267594126000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKiapZaBj_gCFQAAAAAdAAAAABAD
+-https://sixads.net/wp-content/uploads/2021/03/thumbs-up.jpg
+-https://c4.wallpaperflare.com/wallpaper/36/697/290/sports-scuba-diving-ocean-sea-underwater-coral-reef-people-background-free-wallpaper-preview.jpg
+-https://www.greeners.co/wp-content/uploads/2019/01/Hiu-Gergaji-3-1.jpg
+-https://upload.wikimedia.org/wikipedia/id/d/de/Ikan_terubuk.jpg
+-https://www.google.com/url?sa=i&url=https%3A%2F%2Fkkp.go.id%2Fdjprl%2Flpsplserang%2Fartikel%2F34538-hiu-paus&psig=AOvVaw3_8jIC4FIz8biHY0uuhs2q&ust=1654268024201000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKjqqeqCj_gCFQAAAAAdAAAAABAD
+-https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.abangnji.com%2F2019%2F09%2Fhiu-karpet-berbintik.html&psig=AOvVaw2fSyTYVsmCPC9UBtUzPcn0&ust=1654268091645000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLCohIKDj_gCFQAAAAAdAAAAABAR
+- https://www.google.com/url?sa=i&url=https%3A%2F%2Fkkp.go.id%2Fdjprl%2Flpsplsorong%2Fpage%2F1990-ikan-napoleon&psig=AOvVaw08VXd2Yc0Y73_pvgkD1_RS&ust=1654268155203000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMj6_aODj_gCFQAAAAAdAAAAABAD
+- https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eurohot20.com%2Faddons%2Faddons-list-4%2Ftestimonial&psig=AOvVaw1zpZkSMaps0M4T6bKb3wFW&ust=1654268188770000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKDNlbWDj_gCFQAAAAAdAAAAABAD
+- https://www.google.com/url?sa=i&url=https%3A%2F%2Fwall.alphacoders.com%2Fby_sub_category.php%3Fid%3D205953%26name%3DScuba%2Bdiving%2BWallpapers%26filter%3D4K%2BUltra%2BHD&psig=AOvVaw0l4gm1R4eeXx93fBRLBbpL&ust=1654268603490000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCKjXo_aEj_gCFQAAAAAdAAAAABAD
+
+FOOTER
+- https://www.freepnglogos.com/pics/logo-facebookpng
+- https://www.freepnglogos.com/pics/logo-twitter-png
+- https://www.freepnglogos.com/pics/logo-ig-png
+- https://commons.wikimedia.org/wiki/File:LinkedIn_logo_initials.png
+- https://www.freeiconspng.com/images/youtube-logo-png

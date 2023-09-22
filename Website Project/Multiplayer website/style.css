@@ -1,0 +1,659 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body{
+    background-color: #333333;
+}
+
+.header{
+    min-height: 100vh;  
+    width: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.400),rgba(255, 255, 255, 0.400)),url(gambar/navbar/homebanner.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img{
+    width: 200px;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+.nav-links ul li a{ 
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-links ul li a:hover{
+    color: #F66B0E;
+}
+
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #F66B0E;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+
+.hero-btn{
+    display: inline-block; 
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff; 
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.hero-btn:hover{
+    border: 2px solid #fff;
+    background: #F66B0E;
+    transition: 1s;
+}
+
+/*----------- Call to Action -------------*/
+
+.call{
+    margin-top: 150px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.cta{
+    margin:auto;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(gambar/promotion.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.cta h1{
+    font-size: 100px;
+    color: #F66B0E;
+}
+
+nav .fa{
+    display: none;
+}
+
+@media(max-width: 800px){
+    .cta h1{
+        font-size: 60px;
+        color: #F66B0E;
+    }
+    .cta{
+        width: 80%;
+        padding: 60px 0;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        background: #333333;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+    }
+    nav .fa img{
+        width: 20px;
+    }
+    nav .fa{
+        display: block;
+        margin: 10px;
+        cursor: pointer;
+    }
+    .nav-links ul{
+        padding: 30px;
+
+    }
+
+}
+
+/* ------------Category---------- */
+.category{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+    background-image: linear-gradient(#797989,#333333);
+}
+
+
+.item-col{
+    margin: 0 15px 30px;
+    padding: 20px 12px;
+    border-radius: 40px;
+    /* margin-bottom: 30px; */
+    position: relative;
+    overflow: hidden;
+}
+
+.item-col img{
+    width: 100%;
+    display: block;
+}
+
+.layer{
+    color: transparent;
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding-top: 25%;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.layer:hover{
+    color: #000;
+    background: rgba(255, 255, 255, 0.404);
+}
+
+.layer h3{
+    width: 100%;
+    font-weight: 500;
+    color: #fff;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.layer:hover h3{
+    bottom: 50%;
+    opacity: 1;
+}
+
+
+
+/*------------ Fender -----------*/
+
+
+
+.fender{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+    background-image: linear-gradient(#333333,#333333);
+}
+
+h1{
+    color: #F66B0E;
+    font-size: 70px;
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.row{
+    /* padding: 5%;
+    margin-top: 5%; */
+    margin: 0 -15px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fender-col{
+    border-radius: 40px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.fender-col img{
+    width: 100%;
+    display: block;
+}
+
+.fender-col{
+    margin: 0 15px 30px;
+    padding: 20px 12px;
+    border-radius: 10px;
+    border: 3px solid #000;
+    box-sizing: border-box;
+    background: #fff;
+    transition: 0.5s;
+}
+
+
+.fender-col:hover{
+    box-shadow: 0 0 20px 0px #F66B0E;
+}
+
+.col-50{
+    width: calc(50% - 30px);
+}
+
+.col-33{
+    width: calc(33.33% - 30px);
+}
+
+.col-25{
+    width: calc(25% - 30px);
+}
+
+@media screen and (max-width: 1000px) {
+    .col-25{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .col-50, .col-33, .col-25 {
+        width: 100%;
+    }
+} 
+
+/* -------------footer------------- */
+
+.container{
+    max-width: 1170px;
+    background-color: #333333;
+    border-top: 2px solid #fff;
+    margin: auto;
+}
+
+.row-footer{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul{
+    list-style: none;
+}
+
+.footer{
+    background-color: #333333;
+    padding: 70px 0;
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col img{
+    width: 30px;
+}
+
+.footer-col img:hover{
+    width: 50px;
+
+}
+
+
+.footer-col h4{
+    font-size: 18px;
+    color: #F66B0E;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative ;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3 ease;
+}
+
+.footer-col ul li a:hover{
+    color: #fff;
+    padding-left: 8px;
+}
+
+@media(max-width: 800px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 500px){
+    .footer-col{
+        width: 100%;
+    }
+}
+
+/* -----------------Gallery page----------------- */
+
+.header-gallery{
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(gallery/background.webp);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+.header-gallery h1{
+    color: #F66B0E;
+    font-size: 60px;
+}
+
+.item h2{
+    margin: 25px;
+    color: #F66B0E;
+}
+
+.product-col{
+    margin: 0 15px 30px;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 40px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.product-col img{
+    width: 100%;
+}
+
+.product-col p{
+    color: #fff;
+}
+
+@media(max-width: 800px){
+    .header-gallery h1{
+        font-size: 40px;
+        color: #F66B0E;
+        margin-top: 100px;
+    }
+}
+
+
+
+/* --------------------------MEMBER PAGE-------------------------- */
+
+.header-member{
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(Member/male-musician-playing-acoustic-g.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+.header-member h1{
+    font-size: 60px;
+    color: #fff;
+    margin-top: 50px;
+}
+
+.join-us{
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #F66B0E;
+    padding: 30px;
+    color: #F66B0E;
+    margin: 20px auto;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+    background-color: #0d1021;
+}
+
+.tittle{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.form{
+    width: 100%;
+}
+
+.input_field{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.input_field label{
+    width: 200px;
+    color: #F66B0E;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.input_field input,
+.input_field textarea{
+    width: 100%;
+    outline: none;
+    border: 1px solid #F66B0E;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.textarea{
+    resize: none;
+    height: 125px; 
+}
+
+.custom_select{
+    position: relative;
+    width: 107%;
+    height: 37px;
+    margin-left: 5px;
+}
+
+.custom_select select{
+    border: 1px solid #F66B0E;
+    border-radius: 10px;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+.custom_select::before{
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border: 8px solid;
+    border-color: #F66B0E transparent transparent transparent;
+    pointer-events: none;
+}
+
+.input:focus,
+.textarea:focus,
+select:focus{
+    border: 1px solid #2387cf;
+}
+
+.input_field p{
+    font-size: 14px;
+    color: #F66B0E;
+}
+
+@media(max-width: 800px){
+    .header-member h1{
+        font-size: 40px;
+        color: #fff;
+        margin-top: 10px;
+    }
+}
+
+/*----------------CONTACT US PAGE----------------*/
+
+.header-contact{
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(contact_us/contact_bg.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+.header-contact h1{
+    margin-top: 100px;
+}
+
+
+/* CONTACT US 2.0 */
+
+.contactus{
+    background-image: linear-gradient(#424452,#333333);
+}
+
+.contact-col{
+    margin-top: 20px;
+    margin-left: 50px;
+    align-items: center;
+}
+
+.contact-col h3{
+    font-size: 50px;
+    color: #F66B0E;
+}
+
+.contact-col p{
+    font-size: 30px;
+    color: #fff;
+}
+
+.contact-col2 h2{
+    margin-left: 50px;
+    font-size: 40px;
+    color: #F66B0E;
+}
+
+.contact-col2{
+    margin-top: 10%;
+}
+
+
+.contact-col2 img{
+    margin-left: 50px;
+    width: 30px;
+}
+
+.contact-col2 img:hover{
+    width: 50px;
+}
+
+
+/*---------------- ABOUT US PAGE ----------------*/
+
+.sub-header{
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(about_us/Guitar-Store.jpg);
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+.sub-header h1{
+    margin-top: 100px;
+}
+
+.guitar{
+    background-image: linear-gradient(#0c0d19,#333333);
+}
+
+.about-col{
+    margin: 0 15px 30px;
+    padding: 20px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.about-col img{
+    width: 100%;
+}
+
+.about-col h2{
+    color: #fff;
+    margin-top: 25%;
+    text-align: center;
+}
+
+.about-col h1{
+    margin-top: 10%;
+    font-size: 30px;
+}
+
+.about-col p{
+    color: #fff;
+    font-size: 20px;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+

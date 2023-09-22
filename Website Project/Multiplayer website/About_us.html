@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tanaka Guitar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="Tanaka_guitar.html"><img src="logo2.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"><img src="button/close.png"></i>
+            <ul>
+                <li><a href="Tanaka_guitar.html">HOME</a></li>
+                <li><a href="Gallery.html">GALLERY</a></li>
+                <li><a href="Join_US.html">MEMBER</a></li>
+                <li><a href="Contact_us.html">CONTACT US</a></li>
+                <li><a href="About_us.html">ABOUT US</a></li>
+            </ul>
+            </div>
+            <i class="fa fa-times" onclick="showMenu()"><img src="button/menu.png  "></i>
+        </nav>
+        <h1>ABOUT US</h1>
+    </section>
+
+    <!-- ---------------history--------------- -->
+
+    <section class="guitar">
+        <div class="row">
+            <div class="about-col col-50">
+                <img src="about_us/guitar.jpg" alt="guitar">
+            </div>
+            <div class="about-col col-50">
+                <h2>Tanaka Guitar is a company founded by Tanaka brothers in 2021.</h2>
+            </div>
+            <div class="about-col col-50" id="aboutus_2">
+                <h1>Tanaka Guitar sell original and high quality product with the best price</h1>
+                <p>We sell premium items such as Fender, Yamaha, Taylor, Ibanez, and Gibson.</p>
+                <a href="Gallery.html" class="hero-btn">BROWSE NOW</a>
+            </div>
+            <div class="about-col col-50">
+                <img src="about_us/guitar store.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!------- footer ------->
+
+    <section class="footer">
+        <div class="container">
+            <div class="row-footer">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="About_us.html">about us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get help</h4>
+                    <ul>
+                        <li><a href="Contact_us.html">contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Gallery</h4>
+                    <ul>
+                        <li><a href="Gallery.html">our product</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+                    <div class="icons">
+                        <a href="https://www.facebook.com/"><img src="footer/facebook.png" alt=""></a>
+                        <a href="https://www.instagram.com/"><img src="footer/instagram.png" alt=""></a>
+                        <a href="https://twitter.com/"><img src="footer/twitter.png" alt=""></a>
+                        <a href="https://www.linkedin.com/"><img src="footer/linkedin.png" alt=""></a>
+                        <a href="https://www.youtube.com/"><img src="footer/youtube.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- --------JavaScript for toggle menu-------- -->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px"
+        }
+    </script>
+    
+</body>
+</html>
