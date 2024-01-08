@@ -1,1 +1,12 @@
 Ini merupakan project deteksi wajah pemain basket 200 image sample (10 class setiap class terdiri dari 20 gambar), menggunakan Haarcascade dan LBPHFace Recognition
+
+Cara set up opencv untuk library cv2 = https://www.notion.so/Library-Computer-Vision-1d1ba3f4b58a474d9632a336f1985e4b?pvs=4
+
+Python  = 3.7.6
+
+Library yang digunakan :
+import os
+import cv2
+from sklearn.model_selection import train_test_split
+import numpy as np
+from collections import Counter
