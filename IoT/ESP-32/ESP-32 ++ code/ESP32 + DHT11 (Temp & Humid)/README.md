@@ -21,9 +21,8 @@ To use the DHT11 module, you'll need to install the DHT sensor library in the Ar
 3. In the Library Manager, search for **"DHT sensor library"** by Adafruit.
 4. Click **Install**.
 
-## 3. Example Code
+## 3. Code
 
-Here’s a simple code snippet to read the temperature and humidity from the DHT11:
 
 ```cpp
 #include "DHT.h"
