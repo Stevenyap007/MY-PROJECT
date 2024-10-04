@@ -54,6 +54,7 @@ void loop() {
   }
   delay(1000);  // Delay to debounce the sensor
 }
+```
 
 ## Explanation:
 - The digitalRead(pirPin) function reads the signal from the PIR sensor.

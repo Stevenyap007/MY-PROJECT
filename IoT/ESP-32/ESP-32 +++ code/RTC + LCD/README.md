@@ -115,6 +115,7 @@ void loop() {
   delay(1000);  // Update the time every second
 }
 
+```
 # 5. Key Points to Keep in Mind:
 Power Supply: Both the RTC DS1307 and the LCD can be powered by 3.3V or 5V from the ESP32. Make sure that your power connections are stable.
 Backup Battery for RTC: Ensure that the DS1307 module has a functioning CR2032 backup battery installed so that it keeps track of the time even when the main power is disconnected.

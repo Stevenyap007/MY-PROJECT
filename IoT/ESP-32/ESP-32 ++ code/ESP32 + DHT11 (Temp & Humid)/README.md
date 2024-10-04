@@ -59,6 +59,7 @@ void loop() {
     Serial.print(h);
     Serial.println(" %");
 }
+```
 
 ## 4. Upload the Code
 
