@@ -1,7 +1,7 @@
 #include <WiFi.h>  // ESP32 uses WiFi.h, not ESP8266WiFi.h
 
-const char* ssid = "Yunus Living";   // Replace with your WiFi SSID
-const char* password = "Nus707070"; // Replace with your WiFi Password
+const char* ssid = "YOUR_WIFI_SSID";   // Replace with your WiFi SSID
+const char* password = "YOUR_WIFI_PASSWORD"; // Replace with your WiFi Password
 
 int ledPin = 2;  // Built-in LED pin (usually GPIO2 on ESP32)
 WiFiServer server(80);     // Start a server on port 80

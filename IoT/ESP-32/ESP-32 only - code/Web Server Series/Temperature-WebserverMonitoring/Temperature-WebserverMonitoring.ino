@@ -2,8 +2,8 @@
 #include <DHT.h>                // DHT sensor library
 
 // Replace with your network credentials
-const char* ssid = "Yunus Living";
-const char* password = "Nus707070";
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
 
 // Set DHT sensor type and GPIO pin
 #define DHTPIN 4       // Pin where the data line of DHT sensor is connected
