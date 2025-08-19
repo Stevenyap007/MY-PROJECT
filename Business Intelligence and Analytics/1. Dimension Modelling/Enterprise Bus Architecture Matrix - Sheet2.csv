@@ -1,0 +1,7 @@
+Business Process ↓ / Data Entity →,Date,Order,Customer,Product,Shipping,Sales,Location,Market
+Order Processing,✅,✅,✅,✅,❌,✅,✅,✅
+Shipping & Delivery,✅,✅,✅,❌,✅,❌,✅,✅
+Customer Management,❌,❌,✅,❌,❌,✅,✅,✅
+Product Management,❌,❌,❌,✅,❌,✅,❌,❌
+Sales & Revenue Analysis,✅,✅,✅,✅,❌,✅,✅,✅
+Geographical/Market Analysis,✅,✅,✅,❌,❌,✅,✅,✅
