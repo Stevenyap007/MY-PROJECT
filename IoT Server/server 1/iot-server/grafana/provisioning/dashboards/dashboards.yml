@@ -1,0 +1,11 @@
+# Loads every dashboard JSON in ./json automatically when Grafana starts
+apiVersion: 1
+providers:
+  - name: iot
+    folder: IoT
+    type: file
+    disableDeletion: false
+    allowUiUpdates: true
+    updateIntervalSeconds: 30
+    options:
+      path: /etc/grafana/provisioning/dashboards/json

@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "author": "iot-sim",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 40, "left": 0, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -130, "left": -150, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -140,
+      "left": 20,
+      "attrs": { "temperature": "29", "humidity": "65" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -166.4,
+      "left": 188,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-relay-module", "id": "relay_light", "top": 60, "left": 220, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay_ac", "top": 170, "left": 220, "attrs": {} },
+    { "type": "wokwi-resistor", "id": "r1", "top": 60, "left": 400, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 170, "left": 400, "attrs": { "value": "220" } },
+    {
+      "type": "wokwi-led",
+      "id": "led_light",
+      "top": 10,
+      "left": 500,
+      "attrs": { "color": "yellow", "label": "Light" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_ac",
+      "top": 120,
+      "left": 500,
+      "attrs": { "color": "blue", "label": "AC" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pir1:VCC", "esp:3V3", "red", [] ],
+    [ "pir1:GND", "esp:GND.1", "black", [] ],
+    [ "pir1:OUT", "esp:13", "green", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [] ],
+    [ "dht1:SDA", "esp:15", "green", [] ],
+    [ "lcd1:VCC", "esp:5V", "red", [] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [] ],
+    [ "lcd1:SDA", "esp:21", "blue", [] ],
+    [ "lcd1:SCL", "esp:22", "purple", [] ],
+    [ "relay_light:VCC", "esp:5V", "red", [] ],
+    [ "relay_light:GND", "esp:GND.1", "black", [] ],
+    [ "relay_light:IN", "esp:26", "orange", [] ],
+    [ "relay_light:COM", "esp:3V3", "red", [] ],
+    [ "relay_light:NO", "r1:1", "orange", [] ],
+    [ "r1:2", "led_light:A", "orange", [] ],
+    [ "led_light:C", "esp:GND.1", "black", [] ],
+    [ "relay_ac:VCC", "esp:5V", "red", [] ],
+    [ "relay_ac:GND", "esp:GND.1", "black", [] ],
+    [ "relay_ac:IN", "esp:27", "cyan", [] ],
+    [ "relay_ac:COM", "esp:3V3", "red", [] ],
+    [ "relay_ac:NO", "r2:1", "cyan", [] ],
+    [ "r2:2", "led_ac:A", "cyan", [] ],
+    [ "led_ac:C", "esp:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}

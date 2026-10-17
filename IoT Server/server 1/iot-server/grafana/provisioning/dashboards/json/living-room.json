@@ -1,0 +1,892 @@
+{
+ "uid": "iot-livingroom",
+ "title": "Living room monitoring",
+ "tags": [
+  "iot"
+ ],
+ "timezone": "browser",
+ "editable": true,
+ "graphTooltip": 1,
+ "schemaVersion": 39,
+ "version": 1,
+ "refresh": "10s",
+ "time": {
+  "from": "now-6h",
+  "to": "now"
+ },
+ "timepicker": {
+  "refresh_intervals": [
+   "5s",
+   "10s",
+   "30s",
+   "1m",
+   "5m"
+  ]
+ },
+ "templating": {
+  "list": [
+   {
+    "name": "ds",
+    "label": "Data source",
+    "type": "datasource",
+    "query": "influxdb",
+    "current": {},
+    "hide": 2,
+    "refresh": 1,
+    "regex": "",
+    "options": []
+   }
+  ]
+ },
+ "annotations": {
+  "list": []
+ },
+ "panels": [
+  {
+   "id": 1,
+   "type": "stat",
+   "title": "Temperature now",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 5,
+    "h": 4
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r._measurement == \"environment\" and r._field == \"temperature\")\n  |> last()"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "celsius",
+     "mappings": [],
+     "color": {
+      "mode": "thresholds"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "green",
+        "value": null
+       },
+       {
+        "color": "orange",
+        "value": 28
+       },
+       {
+        "color": "red",
+        "value": 32
+       }
+      ]
+     },
+     "decimals": 1
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value",
+    "justifyMode": "center",
+    "orientation": "auto",
+    "wideLayout": true,
+    "showPercentChange": false
+   }
+  },
+  {
+   "id": 2,
+   "type": "stat",
+   "title": "Humidity now",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 5,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: -1h)\n  |> filter(fn: (r) => r._measurement == \"environment\" and r._field == \"humidity\")\n  |> last()"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "mappings": [],
+     "color": {
+      "mode": "thresholds"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "text",
+        "value": null
+       }
+      ]
+     },
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value",
+    "justifyMode": "center",
+    "orientation": "auto",
+    "wideLayout": true,
+    "showPercentChange": false
+   }
+  },
+  {
+   "id": 3,
+   "type": "stat",
+   "title": "Light",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 9,
+    "y": 0,
+    "w": 5,
+    "h": 4
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: -5m)\n  |> filter(fn: (r) => r._measurement == \"snapshot\" and r._field == \"light\")\n  |> last()"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "0": {
+         "text": "Off",
+         "color": "#8e8e8e",
+         "index": 0
+        },
+        "1": {
+         "text": "On",
+         "color": "#f2b705",
+         "index": 1
+        }
+       }
+      }
+     ],
+     "color": {
+      "mode": "thresholds"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "text",
+        "value": null
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "background",
+    "graphMode": "none",
+    "textMode": "value",
+    "justifyMode": "center",
+    "orientation": "auto",
+    "wideLayout": true,
+    "showPercentChange": false
+   }
+  },
+  {
+   "id": 4,
+   "type": "stat",
+   "title": "Air conditioner",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 14,
+    "y": 0,
+    "w": 5,
+    "h": 4
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: -5m)\n  |> filter(fn: (r) => r._measurement == \"snapshot\" and r._field == \"ac\")\n  |> last()"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "0": {
+         "text": "Off",
+         "color": "#8e8e8e",
+         "index": 0
+        },
+        "1": {
+         "text": "On",
+         "color": "#3c8dbc",
+         "index": 1
+        }
+       }
+      }
+     ],
+     "color": {
+      "mode": "thresholds"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "text",
+        "value": null
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "background",
+    "graphMode": "none",
+    "textMode": "value",
+    "justifyMode": "center",
+    "orientation": "auto",
+    "wideLayout": true,
+    "showPercentChange": false
+   }
+  },
+  {
+   "id": 5,
+   "type": "stat",
+   "title": "Device",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 19,
+    "y": 0,
+    "w": 5,
+    "h": 4
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: -30d)\n  |> filter(fn: (r) => r._measurement == \"availability\" and r._field == \"online\")\n  |> last()"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "0": {
+         "text": "Offline",
+         "color": "red",
+         "index": 0
+        },
+        "1": {
+         "text": "Online",
+         "color": "green",
+         "index": 1
+        }
+       }
+      }
+     ],
+     "color": {
+      "mode": "thresholds"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "text",
+        "value": null
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "background",
+    "graphMode": "none",
+    "textMode": "value",
+    "justifyMode": "center",
+    "orientation": "auto",
+    "wideLayout": true,
+    "showPercentChange": false
+   }
+  },
+  {
+   "id": 6,
+   "type": "timeseries",
+   "title": "Temperature and humidity",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 4,
+    "w": 24,
+    "h": 9
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"environment\")\n  |> filter(fn: (r) => r._field == \"temperature\" or r._field == \"humidity\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"snapshot\" and r._field == \"threshold\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "celsius",
+     "decimals": 1,
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "spanNulls": true,
+      "showPoints": "never",
+      "drawStyle": "line"
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": ".*temperature.*"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Temperature"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "orange"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": ".*humidity.*"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Humidity"
+       },
+       {
+        "id": "unit",
+        "value": "percent"
+       },
+       {
+        "id": "custom.axisPlacement",
+        "value": "right"
+       },
+       {
+        "id": "custom.fillOpacity",
+        "value": 0
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#6a9fb5"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": ".*threshold.*"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "AC turns on at"
+       },
+       {
+        "id": "custom.fillOpacity",
+        "value": 0
+       },
+       {
+        "id": "custom.lineStyle",
+        "value": {
+         "fill": "dash",
+         "dash": [
+          10,
+          8
+         ]
+        }
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "red"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom",
+     "showLegend": true
+    },
+    "tooltip": {
+     "mode": "multi",
+     "sort": "none"
+    }
+   }
+  },
+  {
+   "id": 7,
+   "type": "state-timeline",
+   "title": "When things were on",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 13,
+    "w": 24,
+    "h": 6
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"snapshot\")\n  |> filter(fn: (r) => r._field == \"occupied\" or r._field == \"light\" or r._field == \"ac\")\n  |> aggregateWindow(every: v.windowPeriod, fn: max, createEmpty: false)"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "0": {
+         "text": "Off",
+         "color": "#8e8e8e",
+         "index": 0
+        },
+        "1": {
+         "text": "On",
+         "color": "#f2b705",
+         "index": 1
+        }
+       }
+      }
+     ],
+     "color": {
+      "mode": "thresholds"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "#8e8e8e",
+        "value": null
+       }
+      ]
+     },
+     "custom": {
+      "lineWidth": 0,
+      "fillOpacity": 85
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": ".*occupied.*"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Room occupied"
+       },
+       {
+        "id": "mappings",
+        "value": [
+         {
+          "type": "value",
+          "options": {
+           "0": {
+            "text": "Empty",
+            "color": "#8e8e8e",
+            "index": 0
+           },
+           "1": {
+            "text": "Occupied",
+            "color": "#c8423b",
+            "index": 1
+           }
+          }
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": ".*light.*"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Light"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": "^ac.*|.*\\bac\\b.*"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Air conditioner"
+       },
+       {
+        "id": "mappings",
+        "value": [
+         {
+          "type": "value",
+          "options": {
+           "0": {
+            "text": "Off",
+            "color": "#8e8e8e",
+            "index": 0
+           },
+           "1": {
+            "text": "On",
+            "color": "#3c8dbc",
+            "index": 1
+           }
+          }
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "showValue": "never",
+    "mergeValues": true,
+    "alignValue": "left",
+    "rowHeight": 0.8,
+    "legend": {
+     "showLegend": false,
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "single",
+     "sort": "none"
+    }
+   }
+  },
+  {
+   "id": 8,
+   "type": "timeseries",
+   "title": "Motion events per hour",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 19,
+    "w": 12,
+    "h": 8
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"motion\" and r._field == \"motion\")\n  |> filter(fn: (r) => r._value == 1)\n  |> aggregateWindow(every: 1h, fn: count, createEmpty: true)"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "decimals": 0,
+     "displayName": "Motion events",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#c8423b"
+     },
+     "custom": {
+      "drawStyle": "bars",
+      "fillOpacity": 70,
+      "lineWidth": 1,
+      "showPoints": "never"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "showLegend": false,
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "single",
+     "sort": "none"
+    }
+   }
+  },
+  {
+   "id": 9,
+   "type": "timeseries",
+   "title": "Hours switched on per day",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 12,
+    "y": 19,
+    "w": 12,
+    "h": 8
+   },
+   "timeFrom": "7d",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "import \"timezone\"\noption location = timezone.location(name: \"Asia/Jakarta\")\n\nfrom(bucket: \"iot_logs\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"snapshot\")\n  |> filter(fn: (r) => r._field == \"light\" or r._field == \"ac\")\n  |> filter(fn: (r) => r._value == 1)\n  |> aggregateWindow(every: 1d, fn: count, createEmpty: true)\n  |> map(fn: (r) => ({ r with _value: float(v: r._value) * 10.0 / 3600.0 }))"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "h",
+     "decimals": 1,
+     "custom": {
+      "drawStyle": "bars",
+      "fillOpacity": 75,
+      "lineWidth": 1,
+      "showPoints": "never",
+      "barAlignment": 0
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": ".*light.*"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Light"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#f2b705"
+        }
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byRegexp",
+       "options": "^ac.*|.*\\bac\\b.*"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Air conditioner"
+       },
+       {
+        "id": "color",
+        "value": {
+         "mode": "fixed",
+         "fixedColor": "#3c8dbc"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "legend": {
+     "showLegend": true,
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi",
+     "sort": "none"
+    }
+   }
+  },
+  {
+   "id": 10,
+   "type": "table",
+   "title": "Switching history",
+   "datasource": {
+    "type": "influxdb",
+    "uid": "${ds}"
+   },
+   "gridPos": {
+    "x": 0,
+    "y": 27,
+    "w": 24,
+    "h": 9
+   },
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "${ds}"
+     },
+     "query": "from(bucket: \"iot_logs\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"actuator\" and r._field == \"state\")\n  |> group()\n  |> map(fn: (r) => ({\n      Time: r._time,\n      Device: if r.device == \"ac\" then \"Air conditioner\" else \"Light\",\n      State: if r._value == 1 then \"On\" else \"Off\",\n      How: if r.source == \"manual\" then \"By hand\" else if r.source == \"auto\" then \"Automatic\" else r.source\n  }))\n  |> sort(columns: [\"Time\"], desc: true)\n  |> limit(n: 100)"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "custom": {
+      "align": "auto",
+      "cellOptions": {
+       "type": "auto"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "showHeader": true,
+    "cellHeight": "sm",
+    "footer": {
+     "show": false,
+     "reducer": [
+      "sum"
+     ],
+     "fields": ""
+    }
+   }
+  }
+ ]
+}
